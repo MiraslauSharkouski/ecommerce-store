@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ShoppingBag, Truck, Shield, Headphones } from "lucide-react";
-import ProductCard from "@/components/product-card";
+import ProductCard from "@/components/ProductCard";
 import { fetchProducts } from "@/lib/api";
 
 export default async function HomePage() {
