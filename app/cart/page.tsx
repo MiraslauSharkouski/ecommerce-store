@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import CartItem from "@/components/cart-item";
+import CartItem from "@/components/CartItem";
 import { useCartStore } from "@/lib/stores/cart-store";
 
 export default function CartPage() {

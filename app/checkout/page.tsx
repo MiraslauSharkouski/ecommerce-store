@@ -11,7 +11,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { useCartStore } from "@/lib/stores/cart-store";
 import { useAuthStore } from "@/lib/stores/auth-store";
-import ProtectedRoute from "@/components/protected-route";
+import ProtectedRoute from "@/components/ProtectedRoute";
 import { toast } from "sonner";
 
 export default function CheckoutPage() {
