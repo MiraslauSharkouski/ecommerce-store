@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useAuthStore } from "@/lib/stores/auth-store";
 import { useCartStore } from "@/lib/stores/cart-store";
-import ProtectedRoute from "@/components/protected-route";
+import ProtectedRoute from "@/components/ProtectedRoute";
 import Link from "next/link";
 
 export default function AccountPage() {
