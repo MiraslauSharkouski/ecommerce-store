@@ -42,12 +42,6 @@ export default function Header() {
             >
               Products
             </Link>
-            <Link
-              href="/categories"
-              className="transition-colors hover:text-foreground/80"
-            >
-              Categories
-            </Link>
           </nav>
         </div>
 
