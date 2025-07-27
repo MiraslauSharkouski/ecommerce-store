@@ -40,6 +40,7 @@ export default function LoginPage() {
         toast.error("Invalid credentials. Try: mor_2314 / 83r5^_");
       }
     } catch (error) {
+      console.error("Login error:", error);
       toast.error("Login failed. Please try again.");
     } finally {
       setLoading(false);
