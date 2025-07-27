@@ -6,13 +6,11 @@ import { Card, CardContent } from "@/components/ui/card";
 import { fetchProduct } from "@/lib/api";
 import AddToCartButton from "./add-to-cart-button";
 
-interface ProductPageProps {
-  params: {
-    id: string;
-  };
-}
-
-export default async function ProductPage({ params }: ProductPageProps) {
+export default async function ProductPage({
+  params,
+}: {
+  params: { id: string };
+}) {
   try {
     const product = await fetchProduct(Number.parseInt(params.id));
 
