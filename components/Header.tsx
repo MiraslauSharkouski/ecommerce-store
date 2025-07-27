@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ShoppingCart, User, Search, Menu } from "lucide-react";
+import { ShoppingCart, User, Search, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
@@ -19,8 +19,17 @@ export default function Header() {
   const { getTotalItems } = useCartStore();
   const { user, isAuthenticated, logout } = useAuthStore();
   const [searchQuery, setSearchQuery] = useState("");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const totalItems = getTotalItems();
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -100,11 +109,43 @@ export default function Header() {
             variant="outline"
             size="icon"
             className="md:hidden bg-transparent"
+            onClick={toggleMenu}
           >
-            <Menu className="h-4 w-4" />
+            {isMenuOpen ? (
+              <X className="h-4 w-4" />
+            ) : (
+              <Menu className="h-4 w-4" />
+            )}
           </Button>
         </div>
       </div>
+
+      {/* Адаптивное меню */}
+      {isMenuOpen && (
+        <div className="md:hidden border-t bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+          <div className="container px-4 py-3 flex flex-col gap-3">
+            <div className="relative">
+              <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+              <Input
+                placeholder="Search products..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="pl-8 w-full"
+              />
+            </div>
+
+            <nav className="flex flex-col gap-2 pt-2">
+              <Link
+                href="/products"
+                className="text-sm font-medium py-2 px-4 rounded-md hover:bg-accent transition-colors"
+                onClick={closeMenu}
+              >
+                Products
+              </Link>
+            </nav>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
