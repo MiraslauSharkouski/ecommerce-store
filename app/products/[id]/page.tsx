@@ -9,10 +9,11 @@ import AddToCartButton from "./add-to-cart-button";
 export default async function ProductPage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
   try {
-    const product = await fetchProduct(Number.parseInt(params.id));
+    const { id } = await params;
+    const product = await fetchProduct(Number.parseInt(id));
 
     return (
       <div className="container mx-auto px-4 py-8">
